@@ -69,9 +69,15 @@ class ProfileScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout),
-            tooltip: 'Log Out',
-            onPressed: () => _showLogoutDialog(context),
+            icon: Icon((user?.isGuest ?? true) ? Icons.login_rounded : Icons.logout_rounded),
+            tooltip: (user?.isGuest ?? true) ? 'Sign In' : 'Log Out',
+            onPressed: () {
+              if (user?.isGuest ?? true) {
+                context.go('/login');
+              } else {
+                _showLogoutDialog(context);
+              }
+            },
           ),
         ],
       ),
@@ -156,6 +162,55 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
             ),
+
+            if (user?.isGuest ?? true) ...[
+              const SizedBox(height: AppSpacing.md),
+              Container(
+                padding: const EdgeInsets.all(AppSpacing.md),
+                decoration: BoxDecoration(
+                  gradient: AppColors.primaryGradient,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Row(
+                  children: [
+                    const Icon(Icons.stars_rounded, color: Colors.white, size: 28),
+                    const SizedBox(width: 12),
+                    const Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Sign In or Register',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                          ),
+                          SizedBox(height: 2),
+                          Text(
+                            'Unlock full order tracking & personalized VIP recommendations',
+                            style: TextStyle(color: Colors.white70, fontSize: 11),
+                          ),
+                        ],
+                      ),
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: AppColors.primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                      ),
+                      onPressed: () => context.go('/login'),
+                      child: const Text('Sign In', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                    ),
+                  ],
+                ),
+              ),
+            ],
 
             const SizedBox(height: AppSpacing.lg),
 

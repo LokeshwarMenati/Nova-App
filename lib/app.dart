@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'core/theme/app_theme.dart';
 import 'data/models/product.dart';
+import 'features/auth/auth_provider.dart';
 import 'features/auth/login_screen.dart';
 import 'features/auth/signup_screen.dart';
 import 'features/product_detail/product_detail_screen.dart';
@@ -12,9 +13,25 @@ import 'features/search/search_screen.dart';
 import 'features/shell/main_shell_screen.dart';
 import 'features/splash/splash_screen.dart';
 
-/// App-wide GoRouter configuration with premium page transition animations.
-final GoRouter _router = GoRouter(
+/// App-wide GoRouter configuration with auth-state redirection and premium transitions.
+GoRouter _createRouter(AuthProvider auth) => GoRouter(
   initialLocation: '/splash',
+  refreshListenable: auth,
+  redirect: (context, state) {
+    final loc = state.matchedLocation;
+    final isAuthRoute = loc == '/login' || loc == '/signup' || loc == '/splash';
+    final hasSession = auth.currentUser != null;
+
+    if (!hasSession && !isAuthRoute) {
+      return '/login';
+    }
+
+    if (auth.isAuthenticated && (loc == '/login' || loc == '/signup')) {
+      return '/home';
+    }
+
+    return null;
+  },
   routes: [
     GoRoute(
       path: '/splash',
@@ -159,8 +176,22 @@ final GoRouter _router = GoRouter(
 );
 
 /// Root Application Widget configuring Theme, MultiProvider, and GoRouter.
-class NovaApp extends StatelessWidget {
+class NovaApp extends StatefulWidget {
   const NovaApp({super.key});
+
+  @override
+  State<NovaApp> createState() => _NovaAppState();
+}
+
+class _NovaAppState extends State<NovaApp> {
+  late final GoRouter _router;
+
+  @override
+  void initState() {
+    super.initState();
+    final auth = context.read<AuthProvider>();
+    _router = _createRouter(auth);
+  }
 
   @override
   Widget build(BuildContext context) {

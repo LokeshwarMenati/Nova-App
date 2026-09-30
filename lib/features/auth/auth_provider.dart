@@ -27,6 +27,7 @@ class AuthProvider extends ChangeNotifier {
   void _loadStoredSession() {
     final session = _localStorage.getUserSession();
     if (session != null &&
+        !session.isGuest &&
         !session.email.toLowerCase().contains('whitematrix') &&
         !session.name.toLowerCase().contains('lokeshwar')) {
       _currentUser = session;
@@ -130,13 +131,12 @@ class AuthProvider extends ChangeNotifier {
     return true;
   }
 
-  /// Allows browsing in Guest mode without credentials.
+  /// Allows browsing in Guest mode without credentials (session is ephemeral).
   Future<void> continueAsGuest() async {
     _setLoading(true);
     await Future.delayed(const Duration(milliseconds: 300));
     final guest = UserProfile.guest();
     _currentUser = guest;
-    await _localStorage.saveUserSession(guest);
     _setLoading(false);
   }
 

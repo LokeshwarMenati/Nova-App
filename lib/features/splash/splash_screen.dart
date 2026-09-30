@@ -87,9 +87,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       // Returning authenticated user — go straight to home
       context.go('/home');
     } else {
-      // Auto-login as guest for instant access — no login wall
-      await auth.continueAsGuest();
-      if (mounted) context.go('/home');
+      // Require user to sign in or choose guest mode explicitly
+      context.go('/login');
     }
   }
 
