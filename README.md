@@ -1,7 +1,7 @@
 # NOVA — Premium Lifestyle Shopping Application
 
 <p align="center">
-  <img src="screenshots/01_splash.png" alt="NOVA Banner" width="100%" style="max-height: 280px; object-fit: cover; border-radius: 16px;" />
+  <img src="screenshots/banner.png" alt="NOVA Banner" width="100%" style="border-radius: 16px;" />
 </p>
 
 <p align="center">
