@@ -165,4 +165,11 @@ dart test/runner.dart
 9. **Wishlist**: Tap the heart icon. Notice the custom painter burst ring and haptic feedback.
 10. **Cart & Checkout**: Tap **Add to Bag**, enter promo code `NOVA10`, click **Proceed to Checkout**, and observe the elastic confirmation modal.
 11. **Dark Mode**: Navigate to Profile, toggle Dark Mode, and experience the contrast-tuned night palette.
-# Nova-App
+
+---
+
+## 🌐 Live Web Deployment
+
+- **Production Live URL**: [https://nova-app-eta-three.vercel.app](https://nova-app-eta-three.vercel.app)
+- **GitHub Repository**: [https://github.com/LokeshwarMenati/Nova-App](https://github.com/LokeshwarMenati/Nova-App)
+
