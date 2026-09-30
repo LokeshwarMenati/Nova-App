@@ -1,0 +1,12 @@
+# Build artifacts & binaries
+build/
+android/
+windows/
+*.apk
+*.dill
+.dart_tool/
+.git/
+.idea/
+.vscode/
+analyze_out.txt
+test_shared.bat
