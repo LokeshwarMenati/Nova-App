@@ -133,7 +133,6 @@ flutter analyze
 flutter run -d chrome       # For Web
 flutter run -d emulator-5554 # For Android
 ```
-
 ---
 
 ## 🧪 Testing Suite
