@@ -81,31 +81,29 @@ External API (DummyJSON: https://dummyjson.com)
 
 ## 🎯 Skills & Core Competencies Demonstrated
 
-This project highlights a comprehensive set of software engineering and mobile development skills:
+### 🎨 Frontend & Mobile UI/UX Engineering
+- **Cross-Platform Flutter & Dart**: Production-ready responsive UI development for Web and Android with strict null safety.
+- **State Management**: Reactive, predictable state handling using `Provider` & `ChangeNotifier` with scoped `context.watch()` rebuild optimizations.
+- **Declarative Navigation & Routing**: Deep linking, shell routes with state preservation, and custom screen transitions via `go_router`.
+- **Responsive Multi-Breakpoint Layouts**: Fluid breakpoint architecture (`<600px`, `600–900px`, `>=900px`) with adaptive shell navigation (Bottom `NavigationBar` dynamically transitioning to widescreen `NavigationRail`).
+- **Design Systems & Theming**: Custom Material 3 design tokens, adaptive Light/True Dark palettes, and dual-font typography pairing (`Poppins` display + `Inter` body).
+- **Animations & Micro-Interactions**: Custom `CustomPainter` heart burst animations, Hero transitions, interactive image pinch-to-zoom galleries, Shimmer skeleton loaders, and staggered masonry grids.
+- **Form Validation & UX**: Real-time regex validation for Indian 10-digit mobile numbers, international email formats, dynamic error feedback, and dismissible cart tiles with instant undo actions.
 
-### 1. Flutter & Dart Engineering
-- **Advanced State Management**: Implemented scalable, decoupled reactive architecture using `Provider` and `ChangeNotifier`.
-- **Declarative Deep Routing**: Configured `go_router` supporting shell route preservation, nested navigation, and custom page transitions.
-- **Responsive & Adaptive UI**: Built multi-breakpoint layouts (Mobile `<600px`, Tablet `600–900px`, Desktop `>=900px`) featuring adaptive controls (Bottom Navigation Bar transitioning to Navigation Rail).
-- **Custom UI & Micro-Interactions**: Engineered custom painters for heart bursts, 60fps micro-animations, Shimmer skeleton loaders, Hero transitions, and Masonry staggered grids.
-- **Dynamic Theming**: Contrast-tuned Light and True Dark mode support with persistent state.
+### ⚙️ Backend, API & Data Architecture Skills
+- **RESTful API Integration**: Industrial HTTP client integration using `Dio` with interceptors, granular timeout configurations, and custom header management.
+- **Data Modeling & Serialization**: Robust JSON serialization/deserialization with defensive null checks, discount calculation formulas, and computed data models.
+- **Concurrency & Race Condition Handling**: Monotonic request token counters (`_requestToken++`) to cancel/drop stale responses during rapid category switches.
+- **Traffic Throttling & Debouncing**: Custom 400ms search input debouncer preventing unneeded network round-trips.
+- **Pagination & Deduplication Algorithms**: Custom infinite scroll engine with in-memory `Set<int>` tracking to guarantee zero duplicate product IDs across page loads.
+- **Offline Resilient Architecture**: Seamless fallback mechanism redirecting failed network queries to bundled JSON assets (`assets/mock/products.json`).
+- **Client-Side Persistence**: Structured local storage with `SharedPreferences` managing auth tokens, user profiles, persistent search history, and cart/wishlist states.
+- **E-Commerce Business Engine**: Accurate real-time pricing calculations, cart subtotals, free delivery threshold logic, and percentage-based promo discount algorithms.
 
-### 2. Network Resilience & Data Architecture
-- **Clean Architecture & Repository Pattern**: Strict separation between UI, State, Domain Repositories, and Data Services.
-- **Industrial REST Client**: Robust HTTP operations using `Dio` with timeout configurations, request tokens, and comprehensive error handling.
-- **Stale Request Protection & Debouncing**: Monotonic request token counters (`_requestToken++`) to prevent race conditions and 400ms search input debouncing.
-- **Deduplication & Pagination Engine**: Dynamic infinite scroll with in-memory `Set<int>` duplicate ID prevention and threshold prefetching.
-- **Offline Fallback Architecture**: Seamless automatic failover to local JSON assets (`assets/mock/products.json`) during network disconnection.
-
-### 3. Data Persistence & Performance Optimization
-- **Local Storage Management**: Key-value persistence via `SharedPreferences` for user session tokens, theme preferences, and search history.
-- **Image Caching & Memory Profiling**: Network image caching with disk persistence and `memCacheWidth` memory clamping using `cached_network_image`.
-- **E-Commerce Business Logic**: Real-time free shipping threshold calculation, percentage promo discount engine, and dismissible cart with undo logic.
-
-### 4. Software Quality & Testing
-- **Automated Unit Testing**: Comprehensive test suite in `test/runner.dart` covering regex validators, model serialization, financial calculations, and pagination algorithms.
-- **Code Health & Static Analysis**: Strict null safety adherence and zero-warning `flutter analyze` compliance.
-- **CI/CD & Deployment**: Production web build optimization and live Vercel deployment.
+### 🧪 Testing, DevOps & Software Quality
+- **Automated Unit Testing**: Comprehensive test suite in `test/runner.dart` validating input validators, data models, business math, and deduplication logic.
+- **Code Quality & Static Analysis**: Zero-warning `flutter analyze` compliance adhering to `flutter_lints`.
+- **CI/CD & Cloud Deployment**: Production web bundle optimization and continuous deployment to Vercel.
 
 ---
 
