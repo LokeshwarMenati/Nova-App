@@ -79,6 +79,36 @@ External API (DummyJSON: https://dummyjson.com)
 
 ---
 
+## 🎯 Skills & Core Competencies Demonstrated
+
+This project highlights a comprehensive set of software engineering and mobile development skills:
+
+### 1. Flutter & Dart Engineering
+- **Advanced State Management**: Implemented scalable, decoupled reactive architecture using `Provider` and `ChangeNotifier`.
+- **Declarative Deep Routing**: Configured `go_router` supporting shell route preservation, nested navigation, and custom page transitions.
+- **Responsive & Adaptive UI**: Built multi-breakpoint layouts (Mobile `<600px`, Tablet `600–900px`, Desktop `>=900px`) featuring adaptive controls (Bottom Navigation Bar transitioning to Navigation Rail).
+- **Custom UI & Micro-Interactions**: Engineered custom painters for heart bursts, 60fps micro-animations, Shimmer skeleton loaders, Hero transitions, and Masonry staggered grids.
+- **Dynamic Theming**: Contrast-tuned Light and True Dark mode support with persistent state.
+
+### 2. Network Resilience & Data Architecture
+- **Clean Architecture & Repository Pattern**: Strict separation between UI, State, Domain Repositories, and Data Services.
+- **Industrial REST Client**: Robust HTTP operations using `Dio` with timeout configurations, request tokens, and comprehensive error handling.
+- **Stale Request Protection & Debouncing**: Monotonic request token counters (`_requestToken++`) to prevent race conditions and 400ms search input debouncing.
+- **Deduplication & Pagination Engine**: Dynamic infinite scroll with in-memory `Set<int>` duplicate ID prevention and threshold prefetching.
+- **Offline Fallback Architecture**: Seamless automatic failover to local JSON assets (`assets/mock/products.json`) during network disconnection.
+
+### 3. Data Persistence & Performance Optimization
+- **Local Storage Management**: Key-value persistence via `SharedPreferences` for user session tokens, theme preferences, and search history.
+- **Image Caching & Memory Profiling**: Network image caching with disk persistence and `memCacheWidth` memory clamping using `cached_network_image`.
+- **E-Commerce Business Logic**: Real-time free shipping threshold calculation, percentage promo discount engine, and dismissible cart with undo logic.
+
+### 4. Software Quality & Testing
+- **Automated Unit Testing**: Comprehensive test suite in `test/runner.dart` covering regex validators, model serialization, financial calculations, and pagination algorithms.
+- **Code Health & Static Analysis**: Strict null safety adherence and zero-warning `flutter analyze` compliance.
+- **CI/CD & Deployment**: Production web build optimization and live Vercel deployment.
+
+---
+
 ## 🚀 Key Features & Implementation Highlights
 
 ### 1. Robust Infinite Scrolling Engine
